@@ -9,6 +9,7 @@ const Filters = () => {
     updateSort,
     updateFilters,
     clearFilters,
+    allProducts,
     filters: {
       text,
       category,
@@ -20,6 +21,13 @@ const Filters = () => {
       shipping,
     },
   } = useFilterContext()
+
+  const categories = getUniqueValues(allProducts, 'category')
+  const companies = getUniqueValues(allProducts, 'company')
+  const colors = getUniqueValues(allProducts, 'colors')
+
+  console.log(colors)
+
   return (
     <Wrapper>
       <div className='content'>
