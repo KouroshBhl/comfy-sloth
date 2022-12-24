@@ -42,6 +42,72 @@ const Filters = () => {
               onChange={updateFilters}
             />
           </div>
+          <div className='form-control'>
+            <h5>category</h5>
+            <div>
+              {categories.map((cat, i) => {
+                return (
+                  <button
+                    key={i}
+                    onClick={updateFilters}
+                    name='category'
+                    type='button'
+                    className={`${category === cat.toLowerCase() && 'active'}`}
+                  >
+                    {cat}
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+          <div className='form-control'>
+            <h5>company</h5>
+            <select
+              name='company'
+              value={company}
+              onChange={updateFilters}
+              className='company'
+            >
+              {companies.map((comp, i) => {
+                return (
+                  <option key={i} value={comp}>
+                    {comp}
+                  </option>
+                )
+              })}
+            </select>
+          </div>
+
+          <div className='form-control'>
+            <h5>colors</h5>
+            <div className='colors'>
+              {colors.map((c, i) => {
+                if (c === 'all')
+                  return (
+                    <button
+                      name='color'
+                      onClick={updateFilters}
+                      data-color='all'
+                      className={` all-btn ${color === 'all' && 'active'}`}
+                    >
+                      All
+                    </button>
+                  )
+                return (
+                  <button
+                    key={i}
+                    name='color'
+                    className={`color-btn ${c === color && 'active'}`}
+                    style={{ backgroundColor: c }}
+                    data-color={c}
+                    onClick={updateFilters}
+                  >
+                    {color === c && <FaCheck />}
+                  </button>
+                )
+              })}
+            </div>
+          </div>
         </form>
       </div>
     </Wrapper>
