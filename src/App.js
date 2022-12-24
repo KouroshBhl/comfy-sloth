@@ -23,6 +23,7 @@ function App() {
         <Route path='/checkout' element={<Checkout />}></Route>
         <Route path='/products' element={<Products />}></Route>
         <Route path='/product/:id' element={<SingleProduct />}></Route>
+        <Route path='/cart' element={<Cart />}></Route>
         <Route path='*' element={<Error />}></Route>
       </Routes>
       <Footer />

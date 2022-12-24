@@ -8,6 +8,20 @@ import AmountButtons from './AmountButtons'
 const AddToCart = ({ singleProduct }) => {
   const { id, stock, colors } = singleProduct
   const [mainColor, setMainColor] = useState(colors[0])
+  const [amount, setAmount] = useState(1)
+
+  const increaseAmount = () => {
+    setAmount((prevNum) => {
+      if (stock > amount) return prevNum + 1
+      else return (prevNum = stock)
+    })
+  }
+  const decreaseAmount = () => {
+    setAmount((prevNum) => {
+      if (amount > 1) return prevNum - 1
+      else return (prevNum = 1)
+    })
+  }
 
   return (
     <Wrapper>
@@ -27,6 +41,16 @@ const AddToCart = ({ singleProduct }) => {
             )
           })}
         </div>
+      </div>
+      <div className='btn-container'>
+        <AmountButtons
+          amount={amount}
+          increaseAmount={increaseAmount}
+          decreaseAmount={decreaseAmount}
+        />
+        <Link to='/cart' className='btn'>
+          Add to cart
+        </Link>
       </div>
     </Wrapper>
   )
