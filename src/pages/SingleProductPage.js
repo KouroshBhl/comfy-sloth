@@ -53,6 +53,7 @@ const SingleProductPage = () => {
     company,
     images,
   } = singleProduct
+
   return (
     <Wrapper>
       <PageHero title={name} product />
@@ -62,7 +63,7 @@ const SingleProductPage = () => {
         </Link>
 
         <div className='product-center'>
-          <ProductImages />
+          <ProductImages images={images} />
           <section className='content'>
             <h2>{name}</h2>
             <Stars />
