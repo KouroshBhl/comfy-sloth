@@ -11,13 +11,13 @@ const AddToCart = ({ singleProduct }) => {
   const [mainColor, setMainColor] = useState(colors[0])
   const [amount, setAmount] = useState(1)
 
-  const increaseAmount = () => {
+  const increase = () => {
     setAmount((prevNum) => {
       if (stock > amount) return prevNum + 1
       else return (prevNum = stock)
     })
   }
-  const decreaseAmount = () => {
+  const decrease = () => {
     setAmount((prevNum) => {
       if (amount > 1) return prevNum - 1
       else return (prevNum = 1)
@@ -46,8 +46,8 @@ const AddToCart = ({ singleProduct }) => {
       <div className='btn-container'>
         <AmountButtons
           amount={amount}
-          increaseAmount={increaseAmount}
-          decreaseAmount={decreaseAmount}
+          increase={increase}
+          decrease={decrease}
         />
         <Link
           to='/cart'
