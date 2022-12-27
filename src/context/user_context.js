@@ -9,9 +9,8 @@ export const UserProvider = ({ children }) => {
   const [myUser, setMyUser] = useState(null)
 
   useEffect(() => {
-    if (!isAuthenticated) return setMyUser(false)
     setMyUser(user)
-  }, [isAuthenticated])
+  }, [user])
 
   return (
     <UserContext.Provider
